@@ -3,6 +3,7 @@ from datetime import datetime
 import socket
 from _thread import *
 
+from Client.request_types import RequestType
 from Server.message import Message
 
 
@@ -13,20 +14,29 @@ class Server:
         self.connections = set()
         self.names = {}
 
-    def handle_client(self, connection):
-        data = connection.recv(2048)
-        name = data.decode()
-        if name:
+    def handle_request(self, connection, request):
+        request_type = request['type']
+        if request_type == RequestType.SEND_MESSAGE.value:
+            content = request['content']
+            if connection not in self.names:
+                print('No name')
+                return
+            sender_name = self.names[connection]
+            sending_time = datetime.now().strftime("%H:%M:%S")
+            message = Message(content, sender_name, sending_time)
+            self.broadcast(message, connection)
+        elif request_type == RequestType.SET_USERNAME.value:
+            name = request['name']
             self.names[connection] = name
-            while True:
-                data = connection.recv(2048)
-                content = data.decode()
-                if not data:
-                    break
-                sender_name = self.names[connection]
-                sending_time = datetime.now().strftime("%H:%M:%S")
-                message = Message(content, sender_name, sending_time)
-                self.broadcast(message, connection)
+
+    def handle_client(self, connection):
+        while True:
+            data = connection.recv(2048)
+            if not data:
+                break
+            json_data = data.decode()
+            self.handle_request(connection, json.loads(json_data))
+
         connection.close()
 
     def broadcast(self, message, connection):
