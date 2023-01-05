@@ -1,0 +1,57 @@
+QDialog {
+   background-color: white;
+}
+
+QWidget#messageWidget {
+   background-color: red;
+   color: #618b38;
+   font-style: italic;
+   font-weight: bold;
+}
+
+QWidget#messages {
+   border-right: None;
+   background-color: white;
+}
+
+QVBoxLayout#messagesLayout {
+   border-right: None;
+}
+
+QLineEdit {
+   background-color: transparent;
+   color: black;
+   font-weight: bold;
+}
+
+QLineEdit#lineEditUserName {
+   border: 1px solid lightgrey;
+   border-radius: 5px;
+}
+
+QLabel#messageLabel {
+   color: black;
+}
+
+QLabel#senderLabel {
+   color: #0064cd;
+   font-weight: bold;
+}
+
+SendMessageWidget {
+   border: 1px solid lightgrey;
+   border-radius: 5px;
+}
+
+DisplayMessagesArea {
+   border: 1px solid lightgrey;
+   border-radius: 5px;
+}
+
+QPushButton {
+   background-color: #0064cd;
+   color: #ffffff;
+   border-radius: 5px;
+   border-style: none;
+   height: 25px;
+}
