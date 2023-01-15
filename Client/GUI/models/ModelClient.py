@@ -5,7 +5,7 @@ import sys
 from PyQt6.QtCore import QObject, pyqtSignal
 
 from Client.GUI.models.MockSocket import MockSocket
-from Client.client import send_message, set_username
+from Client.Console.client import send_message, set_username
 
 
 class ModelClient(QObject):

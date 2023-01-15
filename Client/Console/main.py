@@ -1,6 +1,6 @@
 import sys
 
-from Client.client import Client
+from Client.Console.client import Client
 
 if __name__ == '__main__':
     host = '127.0.0.1'

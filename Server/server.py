@@ -3,7 +3,7 @@ from datetime import datetime
 import socket
 from _thread import *
 
-from Client.request_types import RequestType
+from Common.request_types import RequestType
 from Server.message import Message
 
 
