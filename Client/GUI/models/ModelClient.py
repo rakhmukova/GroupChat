@@ -36,7 +36,7 @@ class ModelClient(QObject):
         self.name_set.emit(name)
 
     def run(self):
-        self.client_socket = MockSocket()  # socket.socket()
+        self.client_socket = socket.socket()  # MockSocket()
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.client_socket.bind((self.host, self.port))
         self.client_socket.connect((self.host, self.server_port))
