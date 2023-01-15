@@ -5,7 +5,7 @@ import sys
 
 from past.builtins import raw_input
 
-from Common.request_types import RequestType
+from common.request_types import RequestType
 
 
 def send_message(content):

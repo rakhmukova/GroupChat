@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 from PyQt6.QtCore import QThread
 from PyQt6.QtWidgets import QApplication
 
-from Client.GUI.views.Chat.ChatWindow import ChatWindow
-from Client.GUI.views.Login.LoginWindow import LoginWindow
-from Client.GUI.models.ModelClient import ModelClient
+from client.gui.views.Chat.ChatWindow import ChatWindow
+from client.gui.views.Login.LoginWindow import LoginWindow
+from client.gui.models.ModelClient import ModelClient
 
 
 class App(QApplication):

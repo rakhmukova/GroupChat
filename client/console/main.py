@@ -3,7 +3,7 @@ import sys
 
 from dotenv import load_dotenv
 
-from Client.Console.client import Client
+from client.console.client import Client
 
 if __name__ == '__main__':
     load_dotenv()

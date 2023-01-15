@@ -1,8 +1,8 @@
 from PyQt6.QtCore import pyqtSlot
 from PyQt6.QtWidgets import *
 
-from Client.GUI.views.Chat.DisplayMessagesArea import DisplayMessagesArea
-from Client.GUI.views.Chat.SendMessageWidget import SendMessageWidget
+from client.gui.views.Chat.DisplayMessagesArea import DisplayMessagesArea
+from client.gui.views.Chat.SendMessageWidget import SendMessageWidget
 
 
 class ChatWindow(QDialog):

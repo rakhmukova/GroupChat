@@ -32,17 +32,17 @@ SERVER_HOST=<address>
 1. Start the server:
 
 ```commandline
-python Server/main.py
+python server/main.py
 ```
 
 To start the console version of the client, run:
 
 ```
-python Client/Console/main.py <client_port>
+python client/console/main.py <client_port>
 ```
 
 To start the GUI version of the client, run:
 
 ```
-python Client/GUI/main.py <client_port>
+python client/gui/main.py <client_port>
 ```

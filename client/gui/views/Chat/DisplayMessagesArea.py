@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QScrollArea, QWidget, QVBoxLayout, QSizePolicy
 
-from Client.GUI.views.Chat.DisplayMessageWidget import DisplayMessageWidget
+from client.gui.views.Chat.DisplayMessageWidget import DisplayMessageWidget
 
 
 class DisplayMessagesArea(QScrollArea):
