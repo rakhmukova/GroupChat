@@ -13,12 +13,13 @@ class ModelClient(QObject):
     login_required = pyqtSignal()
     name_set = pyqtSignal(str)
 
-    def __init__(self, host, port, server_port):
+    def __init__(self, server_host, client_port, server_port):
         super(ModelClient, self).__init__()
 
-        self.host = host
-        self.port = port
+        self.server_host = server_host
         self.server_port = server_port
+        self.client_host = '127.0.0.1'
+        self.client_port = client_port
         self.client_socket = None
 
     def convert_and_send(self, data):
@@ -38,8 +39,8 @@ class ModelClient(QObject):
     def run(self):
         self.client_socket = socket.socket()  # MockSocket()
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.client_socket.bind((self.host, self.port))
-        self.client_socket.connect((self.host, self.server_port))
+        self.client_socket.bind((self.client_host, self.client_port))
+        self.client_socket.connect((self.server_host, self.server_port))
 
         while True:
             data = self.client_socket.recv(2048)

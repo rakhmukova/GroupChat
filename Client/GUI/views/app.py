@@ -1,4 +1,7 @@
+import os
 import sys
+
+from dotenv import load_dotenv
 
 from PyQt6.QtCore import QThread
 from PyQt6.QtWidgets import QApplication
@@ -13,14 +16,15 @@ class App(QApplication):
     def __init__(self, sys_argv):
         super(App, self).__init__(sys_argv)
         self.chat_window = None
-        host = '127.0.0.1'
-        port = int(sys.argv[1])
-        server_port = 2005
+        load_dotenv()
+        server_host = os.environ['SERVER_HOST']
+        server_port = int(os.environ['SERVER_PORT'])
+        client_port = int(sys.argv[1])
 
         self.thread = QThread()
         self.thread.start()
 
-        self.model = ModelClient(host, port, server_port)
+        self.model = ModelClient(server_host, client_port, server_port)
         self.model_thread = QThread()
         self.model.moveToThread(self.model_thread)
         self.model_thread.started.connect(self.model.run)

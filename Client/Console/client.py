@@ -25,10 +25,11 @@ def set_username(name):
 
 
 class Client:
-    def __init__(self, host, port, server_port):
-        self.host = host
-        self.port = port
+    def __init__(self, server_host, client_port, server_port):
+        self.server_host = server_host
         self.server_port = server_port
+        self.client_host = '127.0.0.1'
+        self.client_port = client_port
         self.client_socket = None
 
     def convert_and_send(self, data):
@@ -38,8 +39,8 @@ class Client:
     def start(self):
         self.client_socket = socket.socket()
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.client_socket.bind((self.host, self.port))
-        self.client_socket.connect((self.host, self.server_port))
+        self.client_socket.bind((self.server_host, self.client_port))
+        self.client_socket.connect((self.server_host, self.server_port))
         name = input('Input your name: ')
         data = set_username(name)
         self.convert_and_send(data)

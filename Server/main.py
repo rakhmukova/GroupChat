@@ -1,8 +1,10 @@
-
+import os
+from dotenv import load_dotenv
 from Server.server import Server
 
 if __name__ == '__main__':
-    host = '127.0.0.1'
-    port = 2005
+    load_dotenv()
+    host = os.environ['SERVER_HOST']
+    port = int(os.environ['SERVER_PORT'])
     server = Server(host, port)
     server.start()

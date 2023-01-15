@@ -1,10 +1,14 @@
+import os
 import sys
+
+from dotenv import load_dotenv
 
 from Client.Console.client import Client
 
 if __name__ == '__main__':
-    host = '127.0.0.1'
-    port = int(sys.argv[1])
-    server_port = 2005
-    client = Client(host, port, server_port)
+    load_dotenv()
+    server_host = os.environ['SERVER_HOST']
+    server_port = int(os.environ['SERVER_PORT'])
+    client_port = int(sys.argv[1])
+    client = Client(server_host, client_port, server_port)
     client.start()
