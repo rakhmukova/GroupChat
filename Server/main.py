@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from Server.server import Server
+from server import Server
 
 if __name__ == '__main__':
     load_dotenv()

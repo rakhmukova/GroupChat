@@ -4,7 +4,7 @@ import socket
 from _thread import *
 
 from Common.request_types import RequestType
-from Server.message import Message
+from message import Message
 
 
 class Server:
