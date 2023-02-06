@@ -26,23 +26,3 @@ with the following format:
 SERVER_PORT=<port>
 SERVER_HOST=<address>
 ```
-
-## Usage
-
-1. Start the server:
-
-```commandline
-python server/main.py
-```
-
-To start the console version of the client, run:
-
-```
-python client/console/main.py <client_port>
-```
-
-To start the GUI version of the client, run:
-
-```
-python client/gui/main.py <client_port>
-```
